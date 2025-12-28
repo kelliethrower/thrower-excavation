@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thrower Excavation Quote Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        h1 { text-align: center; }
+        form { max-width: 600px; margin: auto; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; }
+        .checkbox-group { display: flex; align-items: center; gap: 10px; }
+        button { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+    </style>
+</head>
+<body>
+    <h1>Thrower Excavation Quote Generator</h1>
+    <form method="POST">
+        <label>Client Name:
+            <input type="text" name="client_name" required>
+        </label>
+
+        <label>Service Type:
+            <select name="service_type" required>
+                <option value="Pool Removal">Pool Removal</option>
+                <option value="Driveway Repair">Driveway Repair</option>
+                <option value="Land Clearing">Land Clearing</option>
+                <option value="Other">Other</option>
+            </select>
+        </label>
+
+        <h3>Job Address</h3>
+        <label>Street:
+            <input type="text" name="street" required>
+        </label>
+        <label>City:
+            <input type="text" name="city" required>
+        </label>
+        <label>State:
+            <input type="text" name="state" maxlength="2" required>
+        </label>
+        <label>ZIP:
+            <input type="text" name="zip" required>
+        </label>
+
+        <h3>Costs</h3>
+        <label>Estimated Hours:
+            <input type="number" step="0.1" name="hours" required>
+        </label>
+        <label>Owner/Operator Rate ($/hr):
+            <input type="number" step="0.01" name="owner_rate" required>
+        </label>
+        <label>Equipment Rate ($/hr):
+            <input type="number" step="0.01" name="equipment_rate" required>
+        </label>
+        <label>Materials / Disposal Cost ($):
+            <input type="number" step="0.01" name="materials" required>
+        </label>
+
+        <div class="checkbox-group">
+            <label>Employees on job?</label>
+            <input type="checkbox" name="has_employee">
+        </div>
+        <label>Number of Employees:
+            <input type="number" name="num_employees" value="0">
+        </label>
+        <label>Employee Rate ($/hr):
+            <input type="number" step="0.01" name="employee_rate" value="0">
+        </label>
+
+        <div class="checkbox-group">
+            <label>Paying with Credit Card?</label>
+            <input type="checkbox" name="cc_payment">
+        </div>
+
+        <button type="submit">Generate PDF Estimate</button>
+    </form>
+</body>
+</html>
+
