@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thrower Excavation Quote Generator</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Thrower Excavation Quote Generator</h1>
+    
+    <form id="quoteForm">
+      <div class="card">
+        <h2>Client Information</h2>
+        <label>Client Name:
+          <input type="text" id="client" required>
+        </label>
+        <label>Service Type:
+          <select id="service">
+            <option>Pool Removal</option>
+            <option>Driveway Repair</option>
+            <option>Land Clearing</option>
+            <option>Other</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="card">
+        <h2>Job Address</h2>
+        <label>Street:
+          <input type="text" id="street" required>
+        </label>
+        <label>City:
+          <input type="text" id="city" required>
+        </label>
+        <label>State:
+          <input type="text" id="state" maxlength="2" required>
+        </label>
+        <label>ZIP:
+          <input type="text" id="zip" required>
+        </label>
+      </div>
+
+      <div class="card">
+        <h2>Costs</h2>
+        <label>Estimated Hours:
+          <input type="number" step="0.1" id="hours" required>
+        </label>
+        <label>Owner/Operator Rate ($/hr):
+          <input type="number" step="0.01" id="ownerRate" required>
+        </label>
+        <label>Equipment Rate ($/hr):
+          <input type="number" step="0.01" id="equipRate" required>
+        </label>
+        <label>Materials / Disposal ($):
+          <input type="number" step="0.01" id="materials" required>
+        </label>
+      </div>
+
+      <div class="card collapsible">
+        <h2>Employees</h2>
+        <label><input type="checkbox" id="hasEmployee"> Employees on job?</label>
+        <div class="employeeFields">
+          <label>Number of Employees:
+            <input type="number" id="numEmp" value="0">
+          </label>
+          <label>Employee Rate ($/hr):
+            <input type="number" step="0.01" id="empRate" value="0">
+          </label>
+        </div>
+      </div>
+
+      <div class="card collapsible">
+        <h2>Payment</h2>
+        <label><input type="checkbox" id="ccPayment"> Paying with Credit Card?</label>
+      </div>
+
+      <button type="submit">Generate PDF Estimate</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
